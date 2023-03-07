@@ -15,8 +15,7 @@ namespace SpecFlowSelenium.StepDefinitions
 
         public Steps(BrowserDriver browserDriver)
         {
-            _chorusPageObjects = new ChorusPageObjects(browserDriver.Current);            
-            _chorusPageObjects.EnsureChorusAppIsOpen();            
+            _chorusPageObjects = new ChorusPageObjects(browserDriver.Current);
         }
 
         [Given(@"I input the address '([^']*)'")]
