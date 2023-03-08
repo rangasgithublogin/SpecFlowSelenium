@@ -1,4 +1,5 @@
-﻿using SpecFlowSelenium.Drivers;
+﻿using BoDi;
+using SpecFlowSelenium.Drivers;
 using SpecFlowSelenium.PageObjects;
 
 namespace SpecFlowSelenium.Hooks
@@ -14,6 +15,13 @@ namespace SpecFlowSelenium.Hooks
         {
             var chorusPageObject = new ChorusPageObjects(browserDriver.Current);
             chorusPageObject.EnsureChorusAppIsOpen();
+        }
+
+        [BeforeTestRun]
+        public static void BeforeTestRun(ObjectContainer testThreadContainer)
+        {
+            //Initialize a shared BrowserDriver in the global container
+            testThreadContainer.BaseContainer.Resolve<BrowserDriver>();
         }
     }
 }

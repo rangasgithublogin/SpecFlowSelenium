@@ -76,10 +76,13 @@ namespace SpecFlowSelenium.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Search for Broadband Availability")]
-        public virtual void SearchForBroadbandAvailability()
+        [NUnit.Framework.TestCaseAttribute("19A Woodland Road, Johnsonville, Wellington", null)]
+        [NUnit.Framework.TestCaseAttribute("313A The Terrace, Te Aro, Wellington", null)]
+        public virtual void SearchForBroadbandAvailability(string address, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Address", address);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search for Broadband Availability", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 5
 this.ScenarioInitialize(scenarioInfo);
@@ -102,7 +105,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 6
- testRunner.Given("I input the address \'19A Woodland Road, Johnsonville, Wellington\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given(string.Format("I input the address \'{0}\'", address), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 7
  testRunner.When("the listed address is searched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
